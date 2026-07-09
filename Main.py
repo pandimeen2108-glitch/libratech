@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
 
-# ------------------ Abstraction ------------------
 class LibrarySystem(ABC):
 
     @abstractmethod
@@ -8,7 +7,6 @@ class LibrarySystem(ABC):
         pass
 
 
-# ------------------ Encapsulation ------------------
 class Book(LibrarySystem):
 
     def __init__(self, book_id, title, author):
@@ -17,7 +15,7 @@ class Book(LibrarySystem):
         self.__author = author
         self.__available = True
 
-    # Getter methods
+
     def get_book_id(self):
         return self.__book_id
 
@@ -30,11 +28,11 @@ class Book(LibrarySystem):
     def is_available(self):
         return self.__available
 
-    # Setter method
+    
     def set_available(self, status):
         self.__available = status
 
-    # Implementing abstract method
+    
     def display_details(self):
         status = "Available" if self.__available else "Issued"
         print(f"ID: {self.__book_id}")
@@ -44,7 +42,7 @@ class Book(LibrarySystem):
         print("-------------------------")
 
 
-# ------------------ Inheritance ------------------
+
 class Library(Book):
 
     def __init__(self):
@@ -96,7 +94,7 @@ class Library(Book):
         print("Book Not Found.")
 
 
-# ------------------ Polymorphism ------------------
+
 class EBook(Book):
     def display_details(self):
         status = "Available" if self.is_available() else "Issued"
@@ -108,7 +106,7 @@ class EBook(Book):
         print("-------------------------")
 
 
-# ------------------ Main Program ------------------
+
 library = Library()
 
 while True:
